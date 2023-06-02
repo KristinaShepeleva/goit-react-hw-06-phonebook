@@ -1,7 +1,7 @@
 
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { deletePhone } from 'redux/phoneSlise';
+import { deleteontact } from 'redux/phoneSlise';
 
 function ContactList() {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ function ContactList() {
           <p >
             {name}: {number}
           </p>
-          <button className={css.button_delete} type="button" onClick={() => dispatch(deletePhone(id))}>
+          <button className={css.button_delete} type="button" onClick={() => dispatch(deleteontact(id))}>
                 Delete
               </button>
         </li>

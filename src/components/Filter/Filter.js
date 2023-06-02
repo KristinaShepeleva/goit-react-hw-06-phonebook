@@ -8,7 +8,8 @@ function Filter() {
   const filter = useSelector(state => state.filter);
 
 const onChangeFilter = e => {
-    dispatch(filterContacts(e.target.value));
+  dispatch(filterContacts(e.target.value));
+  
   };
 
 

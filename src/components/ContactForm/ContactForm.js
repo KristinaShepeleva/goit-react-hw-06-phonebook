@@ -2,13 +2,17 @@
 import css from './ContactForm.module.css';
 
 import { nanoid } from 'nanoid';
-import { useDispatch } from 'react-redux';
-import { addPhone } from '../../redux/phoneSlise';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from '../../redux/phoneSlise';
 
 
 const ContactForm = () => {
  
   const dispatch = useDispatch();
+
+    const contacts = useSelector(state => {
+    return state.contacts.items
+  });
 
  const handleSubmit = e => {
     e.preventDefault();
@@ -16,12 +20,19 @@ const ContactForm = () => {
       id: nanoid(),
       name: e.target.elements.name.value,
       number: e.target.elements.number.value,
-    };
-    dispatch(addPhone(newContact));
+   };
+
+   if (contacts.find(contact => contact.name.toLowerCase() === newContact.name.toLowerCase())) {
+     return alert(`${newContact.name} is already in contacts`);
+   }
+   if (contacts.find(contact => contact.number === newContact.number)) {
+      return alert(`${newContact.number} is already in contacts`);  
+    }
+
+    dispatch(addContact(newContact));
 
     e.target.reset();
   };
-  
   
   return (
     <form className={css.form} onSubmit={handleSubmit}>

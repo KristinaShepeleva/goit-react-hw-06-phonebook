@@ -7,7 +7,7 @@ import { persistStore, persistReducer, FLUSH,
 import storage from 'redux-persist/lib/storage';
 
 import { configureStore } from "@reduxjs/toolkit";
-import { phoneReducer } from "./phoneSlise";
+import { contactReducer } from "./phoneSlise";
 import { filterReducer } from "./filterSlise";
 
 
@@ -16,7 +16,7 @@ const persistConfig = {
   key: 'contacts',
   storage,
 }
-const persistedReducer = persistReducer(persistConfig, phoneReducer);
+const persistedReducer = persistReducer(persistConfig, contactReducer);
 
 export const store = configureStore({
   reducer: {

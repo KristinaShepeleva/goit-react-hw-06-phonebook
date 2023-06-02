@@ -1,23 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const phoneInitialState = { items: [] };
+const contactInitialState = { items: [] };
 
-const phoneSlice = createSlice({
-  name: "phone",
-  initialState: phoneInitialState,
+const contactSlice = createSlice({
+  name: "contact",
+  initialState: contactInitialState,
   reducers: {
-    addPhone: {
-      reducer(state, action) {
+    addContact(state, action) {
         state.items.push(action.payload);
       },
-    },
-    deletePhone(state, action) {
+    
+    deleteontact(state, action) {
       state.items = state.items.filter(item => item.id !== action.payload);
     },
    
   },
 });
 
-export const { addPhone, deletePhone } = phoneSlice.actions;
-export const phoneReducer = phoneSlice.reducer;
+export const { addContact, deleteontact } = contactSlice.actions;
+export const contactReducer = contactSlice.reducer;
